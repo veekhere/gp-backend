@@ -1,0 +1,20 @@
+type ProductProjection {
+    id: UUID!
+    title: String!
+    price: BigDecimal!
+    availableAmount: Int!
+    storeName: String!
+    totalRatings: Int
+    rating: Float
+}
+
+input ProductProjectionFilter {
+    title: String
+    priceFrom: BigDecimal
+    priceTo: BigDecimal
+    isAvailable: Boolean
+}
+
+extend type Query {
+    searchAllProducts(filter: ProductProjectionFilter!): [ProductProjection]!
+}

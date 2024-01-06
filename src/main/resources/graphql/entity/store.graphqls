@@ -1,0 +1,28 @@
+type Store {
+    id: UUID!
+    name: String!
+    description: String
+    products: [Product]!
+    rating: Float
+}
+
+input StoreInput {
+    id: UUID
+    name: String!
+    description: String
+}
+
+input StoreFilter {
+    name: String
+}
+
+extend type Query {
+    searchStores(filter: StoreFilter!): [Store]!
+    getStore(id: UUID!): Store
+}
+
+extend type Mutation {
+    createStore(store: StoreInput!): OperationResult!
+    updateStore(store: StoreInput!): OperationResult!
+    deleteStore(id: UUID!): OperationResult!
+}

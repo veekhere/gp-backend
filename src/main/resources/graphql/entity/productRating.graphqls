@@ -1,0 +1,17 @@
+type ProductRating {
+    id: UUID!
+    product: Product
+    rating: Int!
+    comment: String
+}
+
+input ProductRatingInput {
+    id: UUID
+    product: UUID!
+    rating: Int!
+    comment: String
+}
+
+extend type Mutation {
+    rateProduct(rating: ProductRatingInput!): OperationResult!
+}
