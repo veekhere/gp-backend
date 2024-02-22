@@ -1,0 +1,8 @@
+type OperationResult {
+    status: OperationStatus!
+}
+
+enum OperationStatus {
+    SUCCESS
+    FAILED
+}

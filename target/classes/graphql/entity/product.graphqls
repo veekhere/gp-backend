@@ -1,0 +1,39 @@
+type Product {
+    id: UUID!
+    title: String!
+    description: String
+    price: BigDecimal!
+    availableAmount: Int!
+    totalRatings: Int
+    rating: Float
+    ratings: [ProductRating]!
+    store: UUID!
+}
+
+input ProductInput {
+    id: UUID
+    title: String!
+    description: String
+    price: BigDecimal!
+    availableAmount: Int!
+    store: UUID!
+}
+
+input ProductFilter {
+    store: UUID!
+    title: String
+    priceFrom: BigDecimal
+    priceTo: BigDecimal
+    isAvailable: Boolean
+}
+
+extend type Query {
+    searchProducts(filter: ProductFilter!): [Product]!
+    getProduct(id: UUID!): Product
+}
+
+extend type Mutation {
+    createProduct(product: ProductInput!): OperationResult!
+    updateProduct(product: ProductInput!): OperationResult!
+    deleteProduct(id: UUID!): OperationResult!
+}
