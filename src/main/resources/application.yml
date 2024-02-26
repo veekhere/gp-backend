@@ -1,7 +1,7 @@
 spring:
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/storebase
+    url: jdbc:postgresql://localhost:5432/rentrate
     username: root
     password: letmein
 
