@@ -14,8 +14,8 @@ public abstract class PlaceEntityMapper {
     public abstract PlaceModel.Place map(PlaceEntity placeEntity);
 
     @Mappings({
-            @Mapping(target = "spaceType", expression = "java(SpaceTypeEnum.valueOf(placeProjection.getSpaceType()))"),
-            @Mapping(target = "rentType", expression = "java(placeProjection.getRentType().stream().map(value -> RentTypeEnum.valueOf(value)).toList())"),
+        @Mapping(target = "spaceType", expression = "java(SpaceTypeEnum.valueOf(placeProjection.getSpaceType()))"),
+        @Mapping(target = "rentType", expression = "java(placeProjection.getRentType().stream().map(value -> RentTypeEnum.valueOf(value)).toList())"),
     })
     public abstract PlaceModel.PlaceProjection map(PlaceProjection placeProjection);
 
