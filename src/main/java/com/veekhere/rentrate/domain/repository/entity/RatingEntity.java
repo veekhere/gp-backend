@@ -1,5 +1,6 @@
 package com.veekhere.rentrate.domain.repository.entity;
 
+import com.veekhere.rentrate.domain.enums.RentTypeEnum;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -7,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-import java.util.Date;
 import java.util.UUID;
 
 @Data
@@ -25,21 +25,17 @@ public class RatingEntity {
 
     Integer price;
 
-    @Column(nullable = false)
-    String rentType;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 10)
+    RentTypeEnum rentType;
 
-    @Column(nullable = false)
-    Date rentDateFrom;
-
-    @Column(nullable = false)
-    Date rentDateTo;
-
-    @Column(nullable = false)
+    @Column(nullable = false, length = 4000)
     String pros;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 4000)
     String cons;
 
+    @Column(length = 4000)
     String comment;
 
     @Column(nullable = false)

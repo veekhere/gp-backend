@@ -6,6 +6,6 @@ CREATE FUNCTION array_avg(arr anyarray)
     RETURNS numeric
     LANGUAGE sql AS $$
 
-    SELECT AVG(a)::numeric(3, 2)
+    SELECT AVG(a)::numeric(32, 2)
     FROM unnest(arr) AS a
 $$;

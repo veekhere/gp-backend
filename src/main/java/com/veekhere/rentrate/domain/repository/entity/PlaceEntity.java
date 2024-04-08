@@ -1,6 +1,7 @@
 package com.veekhere.rentrate.domain.repository.entity;
 
 import com.veekhere.rentrate.domain.enums.RentTypeEnum;
+import com.veekhere.rentrate.domain.enums.SpaceTypeEnum;
 import com.veekhere.rentrate.domain.model.RentPriceModel.RentPrice;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -31,11 +32,13 @@ public class PlaceEntity {
     @Column(nullable = false, updatable = false)
     UUID id;
 
-    @Column(nullable = false)
-    List<String> rentType;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 26)
+    List<RentTypeEnum> rentType;
 
-    @Column(nullable = false)
-    String spaceType;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 10)
+    SpaceTypeEnum spaceType;
 
     @Column(nullable = false)
     Float area;
@@ -99,7 +102,7 @@ public class PlaceEntity {
     private RentPrice getPrices(RentTypeEnum rentType) {
         Supplier<IntStream> streamSupplier = () -> ratings
                 .stream()
-                .filter(value -> value.getRentType().equals(rentType.toString()))
+                .filter(value -> value.getRentType().equals(rentType))
                 .mapToInt(RatingEntity::getPrice);
 
         Integer minPrice = streamSupplier
