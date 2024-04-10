@@ -19,3 +19,8 @@ Tags: `Java`, `Spring Boot`, `GraphQL`, `PostgreSQL`, `Mapstruct`, `Liquibase`, 
 - `Collection<Rating> searchRatings()`
 
 Visit [controller package](src/main/java/com/veekhere/rentrate/controller), [repository package](src/main/java/com/veekhere/rentrate/domain/repository) and [service package](src/main/java/com/veekhere/rentrate/service) for more information. Implemintation of `searchPlaces` SQL query can be found in [v1_search_places.sql](src/main/resources/db.migration/v1/functions/v1_search_places.sql)
+
+### See also
+
+- [Frontend part](https://github.com/veekhere/gp-frontend)
+- [GraphQL schema](https://github.com/veekhere/gp-schema)
