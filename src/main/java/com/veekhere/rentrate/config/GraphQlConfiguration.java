@@ -1,4 +1,4 @@
-package com.veekhere.rentrate.config.graphql;
+package com.veekhere.rentrate.config;
 
 import graphql.scalars.ExtendedScalars;
 import org.springframework.context.annotation.Bean;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.graphql.execution.RuntimeWiringConfigurer;
 
 @Configuration
-public class GraphQlConfig {
+public class GraphQlConfiguration {
     @Bean
     public RuntimeWiringConfigurer runtimeWiringConfigurer() {
         return wiringBuilder -> wiringBuilder
