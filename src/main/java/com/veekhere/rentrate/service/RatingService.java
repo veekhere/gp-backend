@@ -19,7 +19,7 @@ public class RatingService {
 
     public Collection<RatingModel.Rating> searchRatings() {
         RatingEntityMapper ratingEntityMapper = RatingEntityMapper.MAPPER;
-        List<RatingEntity> allRatings = ratingRepository.findAll();
+        List<RatingEntity> allRatings = ratingRepository.findAllByOrderByCreatedAtDesc();
         return allRatings.stream().map(ratingEntityMapper::map).toList();
     }
 
