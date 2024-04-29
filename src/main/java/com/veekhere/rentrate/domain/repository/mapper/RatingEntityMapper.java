@@ -10,7 +10,10 @@ import org.mapstruct.factory.Mappers;
 public abstract class RatingEntityMapper {
     public static final RatingEntityMapper MAPPER = Mappers.getMapper(RatingEntityMapper.class);
 
-    @Mapping(source = "placeId", target = "place.id")
+    @Mappings({
+            @Mapping(source = "placeId", target = "place.id"),
+            @Mapping(target = "createdAt", expression = "java(OffsetDateTime.now())")
+    })
     public abstract RatingEntity map(RatingModel.RatingInput ratingInput);
 
     @Mapping(target = "place", expression = "java(new CommonProjection(ratingEntity.getPlace().getId()))")
