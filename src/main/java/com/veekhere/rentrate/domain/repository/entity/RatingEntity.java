@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Data
@@ -49,4 +50,6 @@ public class RatingEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "place_id", nullable = false)
     PlaceEntity place;
+
+    OffsetDateTime createdAt;
 }

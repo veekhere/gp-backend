@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.veekhere</groupId>
 	<artifactId>rentrate</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-ALPHA</version>
 	<name>rentrate</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Rentable place rating application</description>
 	<properties>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
@@ -77,6 +77,11 @@
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
 			<version>4.23.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>17.0.0</version>
 		</dependency>
 	</dependencies>
 
