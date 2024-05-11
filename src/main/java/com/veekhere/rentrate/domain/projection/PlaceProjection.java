@@ -15,7 +15,7 @@ public interface PlaceProjection {
     String getState();
     String getCity();
     String getRoad();
-    Integer getHouseNumber();
+    String getHouseNumber();
     Float getAvgPrice();
     Float getAvgPlaceRating();
     Float getAvgLandlordRating();

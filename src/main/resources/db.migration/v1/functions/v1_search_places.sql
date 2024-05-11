@@ -18,7 +18,7 @@ CREATE FUNCTION search_places(params json)
         state varchar(255),
         city varchar(255),
         road varchar(255),
-        houseNumber integer,
+        houseNumber varchar(32),
         avgPrice real,
         avgPlaceRating real,
         avgLandlordRating real,
@@ -41,7 +41,7 @@ DECLARE
 	f_state varchar(255);
 	f_city varchar(255);
 	f_road varchar(255);
-	f_house_number integer;
+	f_house_number varchar(32);
 	f_place_rating_from numeric;
 	f_place_rating_to numeric;
 	f_landlord_rating_from numeric;
@@ -64,7 +64,7 @@ BEGIN
     f_state := COALESCE(JSON_EXTRACT_PATH_TEXT(params, 'state')::varchar(255), '');
     f_city := COALESCE(JSON_EXTRACT_PATH_TEXT(params, 'city')::varchar(255), '');
     f_road := COALESCE(JSON_EXTRACT_PATH_TEXT(params, 'road')::varchar(255), '');
-    f_house_number := COALESCE(JSON_EXTRACT_PATH_TEXT(params, 'houseNumber')::integer, 0);
+    f_house_number := COALESCE(JSON_EXTRACT_PATH_TEXT(params, 'houseNumber')::varchar(32), '');
     f_place_rating_from := COALESCE(JSON_EXTRACT_PATH_TEXT(params, 'placeRatingFrom')::numeric, 0);
     f_place_rating_to := COALESCE(JSON_EXTRACT_PATH_TEXT(params, 'placeRatingTo')::numeric, 0);
     f_landlord_rating_from := COALESCE(JSON_EXTRACT_PATH_TEXT(params, 'landlordRatingFrom')::numeric, 0);
@@ -182,11 +182,15 @@ BEGIN
 
         ) AND (
 
+            -- COUNTRY
+
             (LENGTH(LOWER(f_country)) > 0 AND POSITION(LOWER(f_country) in LOWER(p.country)) > 0)
             OR
             (LENGTH(f_country) = 0 AND p.id = p.id)
 
         ) AND (
+
+            -- STATE
 
             (LENGTH(LOWER(f_state)) > 0 AND POSITION(LOWER(f_state) in LOWER(p.state)) > 0)
             OR
@@ -194,11 +198,15 @@ BEGIN
 
         ) AND (
 
+            -- CITY
+
             (LENGTH(LOWER(f_city)) > 0 AND POSITION(LOWER(f_city) in LOWER(p.city)) > 0)
             OR
             (LENGTH(f_city) = 0 AND p.id = p.id)
 
         ) AND (
+
+            -- ROAD
 
             (LENGTH(LOWER(f_road)) > 0 AND POSITION(LOWER(f_road) in LOWER(p.road)) > 0)
             OR
@@ -206,9 +214,11 @@ BEGIN
 
         ) AND (
 
-            (f_house_number > 0 AND p.house_number = f_house_number)
+            -- HOUSE NUMBER
+
+            (LENGTH(LOWER(f_house_number)) > 0 AND POSITION(LOWER(f_house_number) in LOWER(p.house_number)) > 0)
             OR
-            (f_house_number <= 0 AND p.id = p.id)
+            (LENGTH(f_house_number) = 0 AND p.id = p.id)
 
         )
 

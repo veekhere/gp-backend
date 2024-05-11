@@ -21,7 +21,7 @@ public class PlaceModel {
             String state,
             String city,
             String road,
-            Integer houseNumber,
+            String houseNumber,
             List<RatingModel.Rating> ratings,
             RentPriceModel.RentPrice shortTermPrices,
             RentPriceModel.RentPrice longTermPrices,
@@ -42,7 +42,7 @@ public class PlaceModel {
             String state,
             String city,
             String road,
-            Integer houseNumber,
+            String houseNumber,
             Float avgPrice,
             Float avgPlaceRating,
             Float avgLandlordRating,
@@ -61,7 +61,7 @@ public class PlaceModel {
             String state,
             String city,
             String road,
-            Integer houseNumber
+            String houseNumber
     ) {}
 
     public record PlaceFilter(
@@ -76,7 +76,7 @@ public class PlaceModel {
             String state,
             String city,
             String road,
-            Integer houseNumber,
+            String houseNumber,
             Float placeRatingFrom,
             Float placeRatingTo,
             Float landlordRatingFrom,

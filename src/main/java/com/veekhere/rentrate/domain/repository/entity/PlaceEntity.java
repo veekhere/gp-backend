@@ -64,7 +64,7 @@ public class PlaceEntity {
     String road;
 
     @Column(nullable = false)
-    Integer houseNumber;
+    String houseNumber;
 
     @OneToMany(mappedBy = "place", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     List<RatingEntity> ratings;
