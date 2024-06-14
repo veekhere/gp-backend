@@ -178,7 +178,7 @@ BEGIN
 
             (f_floor > 0 AND p.floor = f_floor)
             OR
-            (f_area_to <= 0 AND p.id = p.id)
+            (f_floor <= 0 AND p.id = p.id)
 
         ) AND (
 
