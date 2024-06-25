@@ -34,7 +34,7 @@ public class PlaceService {
                 .orElse(null);
     }
 
-    public OperationResult createProduct(PlaceModel.PlaceInput placeInput) {
+    public OperationResult createPlace(PlaceModel.PlaceInput placeInput) {
         PlaceEntityMapper placeEntityMapper = PlaceEntityMapper.MAPPER;
         PlaceEntity entity = placeEntityMapper.map(placeInput);
 

@@ -6,5 +6,5 @@ public enum SpaceTypeEnum {
     APARTMENTS,
     UTILITY,
     GARAGE,
-    OPEN_SPACE
+    OPEN_SPACE,
 }

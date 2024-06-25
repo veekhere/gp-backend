@@ -23,9 +23,9 @@ public class RatingService {
         return allRatings.stream().map(ratingEntityMapper::map).toList();
     }
 
-    public OperationResult ratePlace(RatingModel.RatingInput productRatingInput) {
-        RatingEntityMapper productRatingEntityMapper = RatingEntityMapper.MAPPER;
-        RatingEntity entity = productRatingEntityMapper.map(productRatingInput);
+    public OperationResult ratePlace(RatingModel.RatingInput placeRatingInput) {
+        RatingEntityMapper placeRatingEntityMapper = RatingEntityMapper.MAPPER;
+        RatingEntity entity = placeRatingEntityMapper.map(placeRatingInput);
 
         try {
             ratingRepository.save(entity);

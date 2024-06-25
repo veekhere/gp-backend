@@ -32,7 +32,7 @@ public class PlaceController {
 
     @MutationMapping
     public OperationResult createPlace(@Argument PlaceModel.PlaceInput place) {
-        return placeService.createProduct(place);
+        return placeService.createPlace(place);
     }
 
     @MutationMapping
